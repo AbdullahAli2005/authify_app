@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 
 class SlidePageRoute extends PageRouteBuilder {
+  // ignore: unused_field
   final Widget _child;
 
   SlidePageRoute(this._child)
       : super(
-            transitionDuration: Duration(milliseconds: 540),
-            transitionsBuilder: (BuildContext _context,
+            transitionDuration: const Duration(milliseconds: 540),
+            transitionsBuilder: (BuildContext context,
                 Animation<double> animation,
                 Animation<double> secondAnimation,
                 Widget child) {
               // Use Tween to define the slide animation
               var slideAnimation = Tween<Offset>(
-                begin: Offset(-1, 0),
+                begin: const Offset(-1, 0),
                 end: Offset.zero,
               ).animate(CurvedAnimation(
                 parent: animation,
@@ -24,7 +25,7 @@ class SlidePageRoute extends PageRouteBuilder {
                 child: child,
               );
             },
-            pageBuilder: (BuildContext _context, animation, secondAnimation) {
+            pageBuilder: (BuildContext context, animation, secondAnimation) {
               return _child;
             });
 }
